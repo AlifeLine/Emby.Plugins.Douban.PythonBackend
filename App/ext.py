@@ -8,15 +8,10 @@ from loguru import logger
 from shortid import ShortId
 
 from App.sdk.DouBanClient import DouBanClient
-from App.utiles.ip2Region import Ip2Region
-from App.utiles.mailServer import MailServer
 
 limiter = Limiter(key_func=get_remote_address)
 redis_client = FlaskRedis()
 executor = ThreadPoolExecutor(32)
-ShortIdGen = ShortId()
-mailServer = MailServer()
-ip2region = Ip2Region("ip2region.db")
 LogLevel = "DEBUG"
 logger.add('logs/baseExt.log',
            level=LogLevel,
